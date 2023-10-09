@@ -13,6 +13,8 @@ const db = mysql.createConnection({
 app.use(express.json());
 app.use(cors());
 
+
+
 // Ändern des MySQL-Benutzerpassworts
 // Dies sollte einmal ausgeführt werden, um das Passwort zu ändern.
 //ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456789'
