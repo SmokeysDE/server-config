@@ -7,7 +7,8 @@ const db = mysql.createConnection({
     host: 'app-db.cpinycsnk7ay.eu-central-1.rds.amazonaws.com',
     user: 'admin',
     port: '3306',
-    password: 'solo210596',
+    password: 'soloma210596',
+    database: 'AppData'
 });
 
 app.use(express.json());
@@ -50,14 +51,14 @@ app.get('/api/user:username', (req, res) => {
         return res.json(result);
     });
 });
-app.get('/api/items', (req, res) => {
+app.get('/api/item', (req, res) => {
     const q = 'SELECT * FROM item';
     db.query(q, (err, result) => {
         if(err) return res.json(err);
         return res.json(result);
     });
 });
-app.get('/api/items:id', (req, res) => {
+app.get('/api/item:id', (req, res) => {
     const q = 'SELECT * FROM item WHERE id = ?';
     db.query(q, [req.params['id']], (err, result) => {
         if(err) return res.json(err);
@@ -88,7 +89,7 @@ app.get('/api/box_has_item', (req,res) => {
 });
 
 app.get('/api/timestamps', (req , res) => {
-    const q = 'SELECT * FROM timestapms';
+    const q = 'SELECT * FROM timestamps';
     db.query(q,(err, result) => {
         if (err) return res.json(err);
         return res.json(result);
@@ -110,7 +111,7 @@ app.post('/api/user', (req, res) => {
     });
 
 });
-app.post('/api/items', (req, res) => {
+app.post('/api/item', (req, res) => {
     const q = 'INSERT INTO item (id, props) VALUES (?)';
     const values = [
         req.body.id,
