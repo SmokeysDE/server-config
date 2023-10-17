@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 
 const app = express();
 const db = mysql.createConnection({
-    host: '0.0.0.0',
+    host: '0.0.0',
     user: 'root',
     port: '3306',
     password: 'secret',
